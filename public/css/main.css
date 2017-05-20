@@ -1,0 +1,31 @@
+html {
+  font-family: Helvetica, arial, sans-serif;
+}
+
+.mothership {
+  display: flex;
+}
+
+/*----------------------------------------------------------------------------*/
+/* EDN Viewer                                                                 */
+/*----------------------------------------------------------------------------*/
+
+.edn-viewer-container {
+  background: rgba(255, 255, 0, 0.8);
+  border-left: 2px solid #ccc;
+  flex: 4;
+  padding: 20px;
+}
+
+.edn-viewer-container textarea {
+  height: 600px;
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Radio                                                                      */
+/*----------------------------------------------------------------------------*/
+
+.radio-container {
+  flex: 6;
+}
