@@ -1,0 +1,7 @@
+# ignore CLJS-generated files
+target/
+public/js/app.dev.js
+public/js/app.prod.js
+
+# ignore git diff files
+*.diff
