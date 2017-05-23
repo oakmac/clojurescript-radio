@@ -7,19 +7,30 @@ html {
 }
 
 /*----------------------------------------------------------------------------*/
-/* EDN Viewer                                                                 */
+/* State Viewer                                                               */
 /*----------------------------------------------------------------------------*/
 
-.edn-viewer-container {
+.state-viewer-container {
   background: rgba(255, 255, 0, 0.8);
   border-left: 2px solid #ccc;
   flex: 4;
   padding: 20px;
 }
 
-.edn-viewer-container textarea {
+.state-viewer-container textarea {
+  font-family: Monaco, Inconsolata, Consolas, Courier, monospace;
+  font-size: 18px;
   height: 600px;
   width: 100%;
+}
+
+.state-viewer-container .radios {
+  padding: 10px 0;
+}
+
+.state-viewer-container .radios label {
+  display: inline-block;
+  margin-right: 10px;
 }
 
 /*----------------------------------------------------------------------------*/

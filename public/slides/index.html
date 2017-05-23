@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+  <title>ClojureScript + React.js Talk - Chris Oakman</title>
+  <meta charset="utf-8">
+  <script src="js/slides.js"></script>
+  <style type="text/css">
+  /* remove the Google logo */
+  article {
+    background: #fff !important;
+  }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .string {
+    color: #008A35;
+  }
+  .small2 {
+    font-size: 18px !important;
+  }
+  .further-reading img {
+    height: 80px;
+    vertical-align: middle;
+  }
+  .cljs-logo {
+    display: inline-block;
+    width: 400px;
+  }
+  </style>
+</head>
+<body style="display: none">
+<section class="slides layout-regular template-default">
+
+
+
+
+<article>
+  <h1>ClojureScript + React.js</h1>
+  <p>Chris Oakman<br />
+    <a href="https://twitter.com/oakmac1">@oakmac1</a><br />
+    <a href="http://chrisoakman.com">chrisoakman.com</a></p>
+</article>
+
+
+
+
+<article>
+<h3>Overview</h3>
+<ul>
+  <li>My Background</li>
+  <li>Introduction to ClojureScript</li>
+  <li>Introduction to React.js</li>
+  <li>Why CLJS + React.js?</li>
+  <li>Build a Radio</li>
+  <li>Q&amp;A</li>
+</ul>
+</article>
+
+
+
+
+
+<article>
+<h3>Who is Chris Oakman?</h3>
+<ul>
+  <li>10+ years as a developer</li>
+  <li>7+ languages</li>
+  <li>built dozens of web apps</li>
+  <li>author of 12+ open source projects</li>
+  <li>contributed to many more</li>
+  <li>Work at Cisco as a UI developer</li>
+  <li>Teach front-end development at The Iron Yard</li>
+</ul>
+</article>
+
+
+
+
+
+
+<article style="text-align: center">
+  <img class="cljs-logo" src="img/cljs-white.png">
+  <h2>Introduction to ClojureScript</h2>
+</article>
+
+
+
+
+
+
+
+
+<article>
+<h3>Why Clojure?</h3>
+<ul>
+  <li>Stable, consistent syntax</li>
+  <li>Large core library</li>
+  <li>Persistent Data Structures</li>
+  <li>Language-level state management</li>
+  <li>Flexible syntax (future-proof)</li>
+  <li>Awesome community</li>
+</ul>
+</article>
+
+
+
+
+
+
+<article>
+<h3>Why ClojureScript?</h3>
+<ul>
+  <li>Clojure compiled to JavaScript</li>
+  <li>Leverages the best of Google Closure toolchain</li>
+  <li>Build system is part of the language</li>
+  <li>Flexible syntax (HTML, async)</li>
+  <li>Stable!</li>
+</ul>
+</article>
+
+
+
+
+
+
+
+
+<article class='smaller'>
+  <q>"Their [software developers] principal work is human communication to organize the user's expressions of needs into formal procedure."</q>
+  <div class='author'>Peopleware, 1987</div>
+</article>
+
+
+
+
+
+<article class="smaller">
+  <h3>Work on "The Right Thing"</h3>
+  <q>"Working on the wrong thing for a month is equivalent to not showing up to work for a month at all."</q>
+  <div class='author'><a href="http://www.defmacro.org/2013/07/23/startup-lessons.html">Slava Akhmechet</a></div>
+</article>
+
+
+
+
+
+<article>
+  <h3>Specialize and Generalize</h3>
+  <p><img class='centered' style='height: 500px' src='img/valve_t.png' alt="" /></p>
+</article>
+
+
+
+
+
+
+<article>
+<h3>Work at a Software Company</h3>
+<p>Work somewhere where the quality of the software effects the bottom line.</p>
+</article>
+
+
+
+
+
+
+<article>
+<h3>Working software gets you hired</h3>
+<ul>
+  <li>Open source
+  <li>Working website
+  <li>Side projects
+  <li>It's a smell if you don't have any of these
+</ul>
+</article>
+
+
+
+
+
+<article>
+<h3>Tech "pop culture" considered harmful</h3>
+<ul>
+  <li>Read books, not blogs
+  <li>Focus on "timeless advice"
+  <li>Nobody becomes an expert on distributed systems by reading Hacker News or Twitter
+</ul>
+</article>
+
+
+
+
+
+<article>
+<h3>Education never stops</h3>
+<ul>
+  <li>It's up to you
+  <li>Knowledge is compounding; don't undervalue it
+  <li>Increase your ability to create value
+  <li>Learn by reading, but mostly doing
+  <li>Get outside of your comfort zone
+</ul>
+</article>
+
+
+
+
+
+<article>
+  <h2>Bootcamp Graduate Stories</h2>
+</article>
+
+
+
+
+
+<article>
+<h3>Getting Hired</h3>
+<ul>
+  <li>Positive attitude
+  <li>Interest in technology
+  <li>Interest in the company
+  <li>Enough skills to be useful; aptitude
+</ul>
+</article>
+
+
+
+
+
+<article>
+<h3>At Work</h3>
+<ul>
+  <li>Learn and Grow
+  <li>Learn and Grow (seriously)
+  <li>Apply your other skills
+  <li>Don't be afraid to fail
+</ul>
+</article>
+
+
+
+
+
+<article class="smaller">
+  <q>"Tell them that they'll be ok. To find a healthy way to unplug. For every 4 days of getting nowhere,
+    you'll earn 1 day of breakthrough. And it will absolutely be worth the risk and effort it cost no matter
+    how long it takes to realize it."</q>
+  <div class='author'>Iron Yard Graduate</div>
+</article>
+
+
+
+
+
+<article>
+  <h3>And finally, Congratulations!</h3>
+  <p><img class='centered' style='height: 450px' src='img/congratulations.gif' alt="" /></p>
+</article>
+
+
+
+
+
+<article>
+  <h1>Thank you!</h1>
+  <p>Chris Oakman<br />
+    <a href="https://twitter.com/oakmac1">@oakmac1</a><br />
+    <a href="http://chrisoakman.com">chrisoakman.com</a></p>
+</article>
+
+
+
+</section>
+</body>
+</html>
