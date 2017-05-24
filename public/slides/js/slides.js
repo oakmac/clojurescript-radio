@@ -537,7 +537,7 @@ function addPrettify() {
   el.type = 'text/javascript';
   el.src = PERMANENT_URL_PREFIX + 'js/prettify.js';
   el.onload = function() {
-    prettyPrint();
+    // prettyPrint();
   }
   document.body.appendChild(el);
 };

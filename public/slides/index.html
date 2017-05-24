@@ -4,6 +4,7 @@
   <title>ClojureScript + React.js Talk - Chris Oakman</title>
   <meta charset="utf-8">
   <script src="js/slides.js"></script>
+
   <style type="text/css">
   /* remove the Google logo */
   article {
@@ -28,6 +29,10 @@
   .cljs-logo {
     display: inline-block;
     width: 400px;
+  }
+  .react-logo {
+    display: inline-block;
+    width: 450px;
   }
   </style>
 </head>
@@ -68,12 +73,13 @@
 <ul>
   <li>10+ years as a developer</li>
   <li>7+ languages</li>
-  <li>built dozens of web apps</li>
-  <li>author of 12+ open source projects</li>
+  <li>Built dozens of web apps</li>
+  <li>Author of 12+ open source projects</li>
   <li>Work at Cisco as a UI developer</li>
   <li>Teach front-end development at The Iron Yard</li>
-  <li>Started using ClojureScript in 2013</li>
+  <li>Started using ClojureScript in late 2013</li>
 </ul>
+<h2>Basically, I write code every day.</h2>
 </article>
 
 
@@ -91,6 +97,37 @@
 
 
 
+
+<article>
+<h3>What is ClojureScript?</h3>
+<ul>
+  <li>Clojure compiled to JavaScript</li>
+  <li>Functional language</li>
+  <li>Dynamical typed</li>
+  <li>Lisp syntax</li>
+</ul>
+<pre class="prettyprint lang-clj">
+(def pi 3.14)
+
+(defn by-id [id]
+  (.getElementById js/document id))
+
+(hiccups/defhtml header []
+  [:header
+    [:h1
+      [:img {:src "img/cljs-ring.svg" :alt "ClojureScript Logo"}]
+      "ClojureScript Cheatsheet"]
+    [:input#searchInput {:type "text" :placeholder "Search"}]])
+</pre>
+</article>
+
+
+
+
+
+
+
+
 <article>
 <h3>Why Clojure?</h3>
 <ul>
@@ -101,6 +138,8 @@
   <li>Flexible syntax (future-proof)</li>
   <li>Awesome community</li>
 </ul>
+<div style="color: #333; margin-top: 100px;">Great video on Clojure:</div>
+<a href="https://www.infoq.com/presentations/Simple-Made-Easy">Simple Made Easy - Rich Hickey</a>
 </article>
 
 
@@ -114,51 +153,78 @@
   <li>Clojure compiled to JavaScript</li>
   <li>Leverages the best of Google Closure toolchain</li>
   <li>Build system is part of the language</li>
-  <li>Flexible syntax (HTML, async)</li>
+  <li>Flexible syntax: HTML, async, React components</li>
   <li>Stable!</li>
+</ul>
+<div style="color: #333; margin-top: 120px;">Great video on ClojureScript:</div>
+<a href="https://www.youtube.com/watch?v=gsffg5xxFQI">ClojureScript for Skeptics - Derek Slager</a>
+</article>
+
+
+
+
+
+
+
+
+
+<article style="text-align: center">
+  <img class="react-logo" src="img/react-icon.png">
+  <h2>Introduction to React.js</h2>
+</article>
+
+
+
+
+
+
+
+
+
+
+<article>
+<h3>React.js Basics</h3>
+<ul>
+  <li>Declarative DOM</li>
+  <li>Component-based</li>
+  <li>Library handles DOM transitions</li>
+  <li>Small, functional interface</li>
+</ul>
+<img src="img/react-vdom.jpg" />
+</article>
+
+
+
+
+
+
+<article style="text-align: center">
+  <img src="img/cljs-white.png" style="position: absolute; left: 80px; width: 260px;" />
+  <img src="img/heart-eyes.png" style="position: absolute; left: 330px; top: 205px; width: 250px;" />
+  <img src="img/react-icon.png" style="position: absolute; right: 80px; width: 260px;" />
+  <h2>ClojureScript + React.js</h2>
+</article>
+
+
+
+
+
+
+
+
+
+
+<article>
+<h3>ClojureScript + React.js</h3>
+<ul>
+  <li>Consistent syntax (no JSX!)</li>
+  <li>Immutable data by default</li>
+  <li>Components / functions compose naturally</li>
 </ul>
 </article>
 
 
 
-
-
-
-
-
-<article class='smaller'>
-  <q>"Their [software developers] principal work is human communication to organize the user's expressions of needs into formal procedure."</q>
-  <div class='author'>Peopleware, 1987</div>
-</article>
-
-
-
-
-
-<article class="smaller">
-  <h3>Work on "The Right Thing"</h3>
-  <q>"Working on the wrong thing for a month is equivalent to not showing up to work for a month at all."</q>
-  <div class='author'><a href="http://www.defmacro.org/2013/07/23/startup-lessons.html">Slava Akhmechet</a></div>
-</article>
-
-
-
-
-
-<article>
-  <h3>Specialize and Generalize</h3>
-  <p><img class='centered' style='height: 500px' src='img/valve_t.png' alt="" /></p>
-</article>
-
-
-
-
-
-
-<article>
-<h3>Work at a Software Company</h3>
-<p>Work somewhere where the quality of the software effects the bottom line.</p>
-</article>
 
 
 
