@@ -15,3 +15,9 @@
 
 (def index-key-mixin
   {:key-fn (fn [idx] idx)})
+
+
+(defn now
+  "Returns the current timestamp."
+  []
+  (.now js/Date))
