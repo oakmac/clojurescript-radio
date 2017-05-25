@@ -1,56 +1,50 @@
 (ns awesome-radio.components
   (:require
+    [awesome-radio.components.state-explorer :as state-explorer]
     [awesome-radio.state :refer [app-state]]
     [awesome-radio.util :refer [js-log]]
-    [fipp.edn]
     [rum.core :as rum]))
+
+;;------------------------------------------------------------------------------
+;; Toolbar
+;;------------------------------------------------------------------------------
+
+(defn- toggle-state-explorer [js-evt]
+  (swap! app-state update-in [:show-state-explorer?] not)
+  ;; a quick hack to make the state initially show
+  (js/setTimeout #(swap! app-state identity) 20))
+
+(rum/defc Toolbar < rum/static
+  []
+  [:div.toolbar
+    [:button {:on-click toggle-state-explorer} "Toggle State Explorer"]])
 
 ;;------------------------------------------------------------------------------
 ;; Radio
 ;;------------------------------------------------------------------------------
 
-(defn- click-btn [js-evt]
-  (swap! app-state update-in [:show-state-explorer?] not))
+(rum/defc VolumeBar < rum/static
+  [state]
+  [:div.row
+    "TODO: station"])
+
+
+(rum/defc StationAndVolume < rum/static
+  [band frequency volume]
+  [:div.row
+    [:div.box
+      [:label "Station:"]
+      [:div.seven-segment (str band " " frequency)]]
+    [:div.box
+      [:label "Volume:"]
+      [:div.seven-segment (str volume)]]])
+
 
 (rum/defc Radio < rum/static
-  [state]
-  [:div.radio-container
-    "TODO: radio"
-    [:button {:on-click click-btn} "Toggle EDN Viewer"]])
+  [{:keys [band frequency volume]}]
+  [:div.radio
+    (StationAndVolume band frequency volume)])
 
-;;------------------------------------------------------------------------------
-;; State Viewer
-;;------------------------------------------------------------------------------
-
-(defn- change-explorer-format [new-format js-evt]
-  (swap! app-state assoc :state-explorer-format new-format))
-
-(defn- blur-state-textarea [js-evt]
-  (let [new-state-txt (aget js-evt "currentTarget" "value")]
-    (js-log new-state-txt)))
-
-(rum/defc EDNViewer < rum/static
-  [state]
-  (let [edn? (= (:state-explorer-format state) :edn)]
-    [:div.state-viewer-container
-      [:h2 "Application State"]
-      [:div.radios
-        [:label
-          [:input {:type "radio"
-                   :checked edn?
-                   :on-click (partial change-explorer-format :edn)}]
-          "EDN"]
-        [:label
-          [:input {:type "radio"
-                   :checked (not edn?)
-                   :on-click (partial change-explorer-format :json)}]
-          "JSON"]]
-      [:textarea
-        {:on-blur blur-state-textarea
-         :value
-          (if edn?
-            (-> state fipp.edn/pprint with-out-str)
-            (-> state clj->js (js/JSON.stringify nil 2)))}]]))
 
 ;;------------------------------------------------------------------------------
 ;; Top Level Component
@@ -59,6 +53,9 @@
 (rum/defc Mothership < rum/static
   [state]
   [:div.mothership
-    (Radio state)
+    [:div.main-container
+      (Toolbar)
+      [:div.radio-container
+        (Radio state)]]
     (when (:show-state-explorer? state)
-      (EDNViewer state))])
+      (state-explorer/StateExplorer state))])
