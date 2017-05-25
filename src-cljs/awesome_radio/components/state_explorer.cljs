@@ -37,11 +37,11 @@
           [:input {:type "radio"
                    :checked edn?
                    :on-click (partial change-explorer-format "EDN")}]
-          "EDN"]
+          " EDN"]
         [:label
           [:input {:type "radio"
                    :checked (not edn?)
                    :on-click (partial change-explorer-format "JSON")}]
-          "JSON"]]
+          " JSON"]]
       [:textarea#stateTextarea
         {:on-blur blur-state-textarea}]]))
