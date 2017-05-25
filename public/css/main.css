@@ -63,7 +63,7 @@ html {
   background: #81d4fa;
   border-radius: 20px;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3), 0 0 10px grey;
-  margin: 20px 0;
+  margin: 15px auto;
   min-height: 200px;
   padding: 20px;
   position: relative;
@@ -92,4 +92,17 @@ html {
   color: #000;
   font-family: 'Orbitron', sans-serif;
   font-size: 24px;
+}
+
+.radio button {
+  background: #fff;
+  border: 1px solid #03a9f4;
+  display: inline-block;
+  margin-right: 5px;
+  padding: 6px 12px;
+}
+
+.radio .favorite-btn {
+  border-radius: 100%;
+  padding: 10px 15px;
 }

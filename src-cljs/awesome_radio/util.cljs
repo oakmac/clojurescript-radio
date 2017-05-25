@@ -11,3 +11,7 @@
 
 (defn by-id [id]
   (.getElementById js/document id))
+
+
+(def index-key-mixin
+  {:key-fn (fn [idx] idx)})

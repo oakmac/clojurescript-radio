@@ -1,18 +1,19 @@
 (ns awesome-radio.components
   (:require
+    [awesome-radio.constants :refer [min-volume max-volume]]
     [awesome-radio.components.state-explorer :as state-explorer]
-    [awesome-radio.state :refer [app-state]]
-    [awesome-radio.util :refer [js-log]]
+    [awesome-radio.state :refer [*app-state]]
+    [awesome-radio.util :as util]
     [rum.core :as rum]))
 
 ;;------------------------------------------------------------------------------
-;; Toolbar
+;; App Toolbar
 ;;------------------------------------------------------------------------------
 
 (defn- toggle-state-explorer [js-evt]
-  (swap! app-state update-in [:show-state-explorer?] not)
+  (swap! *app-state update-in [:show-state-explorer?] not)
   ;; a quick hack to make the state initially show
-  (js/setTimeout #(swap! app-state identity) 20))
+  (js/setTimeout #(swap! *app-state identity) 10))
 
 (rum/defc Toolbar < rum/static
   []
@@ -20,14 +21,8 @@
     [:button {:on-click toggle-state-explorer} "Toggle State Explorer"]])
 
 ;;------------------------------------------------------------------------------
-;; Radio
+;; Station and Volume Display
 ;;------------------------------------------------------------------------------
-
-(rum/defc VolumeBar < rum/static
-  [state]
-  [:div.row
-    "TODO: station"])
-
 
 (rum/defc StationAndVolume < rum/static
   [band frequency volume]
@@ -39,15 +34,95 @@
       [:label "Volume:"]
       [:div.seven-segment (str volume)]]])
 
+;;------------------------------------------------------------------------------
+;; Tuner and Volume Controls
+;;------------------------------------------------------------------------------
 
-(rum/defc Radio < rum/static
-  [{:keys [band frequency volume]}]
-  [:div.radio
-    (StationAndVolume band frequency volume)])
+(defn- click-source-btn [new-source _js-evt]
+  (swap! *app-state assoc :band new-source))
 
+
+(defn- click-tune-up-btn [_js-evt])
+  ;; TODO: write me
+
+
+(defn- click-tune-down-btn [_js-evt])
+  ;; TODO: write me
+
+
+(defn- click-volume-up-btn
+  "Turn it up my man!"
+  [_js-evt])
+  ;; TODO: write me
+
+
+(defn- click-volume-down-btn
+  "Turn it down you kids!"
+  [_js-evt])
+  ;; TODO: write me
+
+
+(defn- change-volume [js-evt]
+  (let [new-volume (int (aget js-evt "currentTarget" "value"))]
+    (swap! *app-state assoc :volume new-volume)))
+
+
+(rum/defc TunerAndVolumeControls < rum/static
+  [volume]
+  [:div.row
+    [:div.box
+      [:label "Source:"]
+      [:div
+        [:button {:on-click (partial click-source-btn "AM")} "AM"]
+        [:button {:on-click (partial click-source-btn "FM")} "FM"]]]
+    [:div.box
+      [:label "Tune:"]
+      [:div
+        [:button {:on-click click-tune-up-btn} "▲"]
+        [:button {:on-click click-tune-down-btn} "▼"]]]
+    [:div.box
+      [:label "Volume:"]
+      [:div
+        ;; TOOD: maybe we want buttons instead?
+        ; [:button {:on-click click-volume-up-btn} "▲"]
+        ; [:button {:on-click click-volume-down-btn} "▼"]
+        [:input {:max max-volume
+                 :min min-volume
+                 :on-change change-volume
+                 :type "range"
+                 :value volume}]]]])
 
 ;;------------------------------------------------------------------------------
-;; Top Level Component
+;; Favorites
+;;------------------------------------------------------------------------------
+
+(rum/defc FavoriteButton < rum/static
+                           util/index-key-mixin
+  [idx {:keys [band frequency]}]
+  [:button.favorite-btn
+    (str (inc idx))])
+
+(rum/defc Favorites < rum/static
+  [favorites]
+  [:div.row
+    [:div.box
+      [:label "Favorites:"]
+      [:div
+        (map-indexed FavoriteButton favorites)]]])
+
+;;------------------------------------------------------------------------------
+;; Radio
+;;------------------------------------------------------------------------------
+
+(rum/defc Radio < rum/static
+  [{:keys [band favorites frequency volume]}]
+  [:div.radio
+    (StationAndVolume band frequency volume)
+    (TunerAndVolumeControls volume)
+    (Favorites favorites)])
+
+;;------------------------------------------------------------------------------
+;; Top Level App Component
 ;;------------------------------------------------------------------------------
 
 (rum/defc Mothership < rum/static

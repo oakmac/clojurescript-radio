@@ -1,7 +1,7 @@
 (ns awesome-radio.core
   (:require
     [awesome-radio.components :refer [Mothership]]
-    [awesome-radio.state :refer [app-state]]
+    [awesome-radio.state :refer [*app-state]]
     [awesome-radio.util :as util]
     [fipp.edn]
     [rum.core :as rum]))
@@ -21,7 +21,7 @@
           (-> new-state fipp.edn/pprint with-out-str)
           (-> new-state clj->js (js/JSON.stringify nil 2)))))))
 
-(add-watch app-state :state-explorer update-state-explorer!)
+(add-watch *app-state :state-explorer update-state-explorer!)
 
 ;;------------------------------------------------------------------------------
 ;; Render Loop
@@ -34,11 +34,11 @@
   [_kwd _the-atom _old-state new-state]
   (rum/mount (Mothership new-state) app-container-el))
 
-(add-watch app-state :render-loop render!)
+(add-watch *app-state :render-loop render!)
 
 ;;------------------------------------------------------------------------------
 ;; App Initialization
 ;;------------------------------------------------------------------------------
 
 ;; trigger the first render
-(swap! app-state identity)
+(swap! *app-state identity)
