@@ -23,7 +23,7 @@ html {
 
 .state-viewer-container textarea {
   font-family: Monaco, Inconsolata, Consolas, Courier, monospace;
-  font-size: 18px;
+  font-size: 16px;
   height: 600px;
   width: 100%;
 }
@@ -97,6 +97,7 @@ html {
 .radio button {
   background: #fff;
   border: 1px solid #03a9f4;
+  cursor: pointer;
   display: inline-block;
   margin-right: 5px;
   padding: 6px 12px;
@@ -105,4 +106,8 @@ html {
 .radio .favorite-btn {
   border-radius: 100%;
   padding: 10px 15px;
+}
+
+.radio .favorite-btn.active {
+  background: yellow;
 }

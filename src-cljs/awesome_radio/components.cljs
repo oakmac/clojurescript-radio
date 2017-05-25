@@ -96,10 +96,15 @@
 ;; Favorites
 ;;------------------------------------------------------------------------------
 
+(defn- click-favorite-btn [{:keys [band frequency]}]
+  (swap! *app-state assoc :band band
+                          :frequency frequency))
+
 (rum/defc FavoriteButton < rum/static
                            util/index-key-mixin
-  [idx {:keys [band frequency]}]
+  [idx favorite]
   [:button.favorite-btn
+    {:on-click (partial click-favorite-btn favorite)}
     (str (inc idx))])
 
 (rum/defc Favorites < rum/static

@@ -35,3 +35,9 @@
        (>= f min-fm-frequency)
        (<= f max-fm-frequency)
        (odd? (* f 10))))
+
+(defn valid-frequency? [band f]
+  (and (valid-band? band)
+       (if (= band "AM")
+         (valid-am-station? f)
+         (valid-fm-station? f))))

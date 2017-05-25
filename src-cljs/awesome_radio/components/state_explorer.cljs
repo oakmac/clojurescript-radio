@@ -23,7 +23,8 @@
         new-value (if (map? new-value)
                     new-value
                     (js->clj new-value :keywordize-keys true))]
-    (reset! *app-state new-value)))
+    (when new-value
+      (reset! *app-state new-value))))
 
 
 (rum/defc StateExplorer < rum/static
