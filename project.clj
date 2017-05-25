@@ -7,10 +7,12 @@
             :url "https://github.com/oakmac/clojurescript-radio/blob/master/LICENSE.md"
             :distribution :repo}
 
-  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
-                 [org.clojure/clojurescript "1.9.456"]
-                 [fipp "0.6.8"]
-                 [rum "0.10.8"]]
+  :dependencies
+    [[org.clojure/clojure "1.9.0-alpha14"]
+     [org.clojure/clojurescript "1.9.456"]
+     [fipp "0.6.8"]
+     [hiccups "0.3.0"]
+     [rum "0.10.8"]]
 
   :plugins [[lein-cljsbuild "1.1.6"]]
 
