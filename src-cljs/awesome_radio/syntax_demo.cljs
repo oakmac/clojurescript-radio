@@ -1,4 +1,5 @@
-(ns awesome-radio.demo
+(ns awesome-radio.syntax-demo
+  "Demo of flexible ClojureScript syntax"
   (:require-macros
     [hiccups.core :as hiccups])
   (:require
