@@ -1,6 +1,6 @@
 (ns awesome-radio.components
   (:require
-    [awesome-radio.constants :refer [min-volume max-volume]]
+    [awesome-radio.constants :refer [min-volume max-volume streams]]
     [awesome-radio.components.state-explorer :as state-explorer]
     [awesome-radio.state :refer [*app-state]]
     [awesome-radio.util :as util]
@@ -30,6 +30,7 @@
     [:div.box
       [:label "Station:"]
       [:div.seven-segment (str band " " frequency)]]
+      [:audio {:auto-play true :src (get-in streams [band frequency] "") :type "audio/mpeg"}]
     [:div.box
       [:label "Volume:"]
       [:div.seven-segment (str volume)]]])
