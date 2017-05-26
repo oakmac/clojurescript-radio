@@ -3,7 +3,8 @@
   (:require
     [awesome-radio.constants :refer [krbe
                                      sports-radio-610
-                                     the-buzz]]
+                                     the-buzz
+                                     ktru]]
     [awesome-radio.validation :refer [valid-am-station?
                                       valid-band?
                                       valid-fm-station?
@@ -18,7 +19,7 @@
 (def initial-state
   "The initial state of our application."
   {:band "FM"
-   :favorites [the-buzz krbe sports-radio-610 nil nil nil]
+   :favorites [the-buzz krbe sports-radio-610 ktru nil nil]
    :frequency 96.5
    :on? true
    :show-state-explorer? true

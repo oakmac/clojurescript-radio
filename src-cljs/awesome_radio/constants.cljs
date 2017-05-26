@@ -23,3 +23,14 @@
 (def sports-radio-610
   {:band "AM"
    :frequency 610})
+
+(def ktru
+  {:band "FM"
+   :frequency 96.1})
+
+(def streams
+  {"FM" 
+      { 96.1 "http://128.42.128.29/live" }
+   "AM"
+      {}
+  })
