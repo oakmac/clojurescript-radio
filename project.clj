@@ -9,7 +9,7 @@
 
   :dependencies
     [[org.clojure/clojure "1.9.0-alpha14"]
-     [org.clojure/clojurescript "1.9.456"]
+     [org.clojure/clojurescript "1.10.63"]
      [fipp "0.6.8"]
      [hiccups "0.3.0"]
      [rum "0.10.8"]]
